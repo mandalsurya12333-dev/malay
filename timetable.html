@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeTable</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              coral: "#ff7b62",
+              yellow: "#facc40",
+              peach: "#fbd3a3",
+              beige: "#fffbf2",
+              dark: "#333333",
+              green: "#22c55e",
+              bg: "#fafafa",
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-100 flex justify-center font-sans">
+  <!-- Mobile Container -->
+  <div class="w-full max-w-md bg-white min-h-screen relative overflow-hidden shadow-2xl flex flex-col" id="app-container">
+    
+    <!-- Header -->
+    <header class="flex items-center px-4 py-4 bg-[#232323] text-white sticky top-0 z-40 relative">
+      <a href="index.html" class="flex items-center text-white z-10">
+        <i data-lucide="chevron-left" class="w-6 h-6 mr-1"></i>
+        <span class="text-[17px] font-normal">Back</span>
+      </a>
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <h1 class="text-[17px] font-normal tracking-wide">TimeTable</h1>
+      </div>
+    </header>
+
+    <!-- Days Navigation -->
+    <div class="px-4 py-4 border-b border-gray-100">
+      <div class="flex overflow-x-auto gap-3 hide-scrollbar pb-1" id="days-nav">
+        <!-- Monday (Active) -->
+        <button class="day-btn flex-none px-8 py-2 rounded-md bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-900 font-medium text-[15px] shadow-sm">
+          Monday
+        </button>
+        <!-- Tuesday -->
+        <button class="day-btn flex-none px-8 py-2 rounded-md border border-gray-200 text-gray-500 font-medium text-[15px]">
+          Tuesday
+        </button>
+        <!-- Wednesday -->
+        <button class="day-btn flex-none px-8 py-2 rounded-md border border-gray-200 text-gray-500 font-medium text-[15px]">
+          Wednesday
+        </button>
+        <!-- Thursday -->
+        <button class="day-btn flex-none px-8 py-2 rounded-md border border-gray-200 text-gray-500 font-medium text-[15px]">
+          Thursday
+        </button>
+        <!-- Friday -->
+        <button class="day-btn flex-none px-8 py-2 rounded-md border border-gray-200 text-gray-500 font-medium text-[15px]">
+          Friday
+        </button>
+        <!-- Saturday -->
+        <button class="day-btn flex-none px-8 py-2 rounded-md border border-gray-200 text-gray-500 font-medium text-[15px]">
+          Saturday
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Day Title -->
+    <div class="py-6 flex justify-center">
+      <h2 id="active-day-title" class="text-2xl text-black font-normal tracking-wide">Monday</h2>
+    </div>
+
+    <!-- Timetable Grid -->
+    <div class="px-5 grid grid-cols-2 gap-4 pb-12 bg-[#f8f9fa] flex-1 pt-2">
+      
+      <!-- Class 1 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] flex flex-col h-[130px]">
+        <div class="bg-[#333333] text-white text-center py-2 text-[13px] font-medium tracking-wide">
+          09:00-09:50 AM
+        </div>
+        <div class="p-3 text-center flex flex-col justify-center flex-1">
+          <p class="text-gray-500 text-[13px] mb-1">Lecture / G:All</p>
+          <p class="text-gray-400 text-[12px] leading-snug">C:CSE436 / R: 55-503 /<br>S:K4E2321</p>
+        </div>
+      </div>
+
+      <!-- Class 2 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] flex flex-col h-[130px]">
+        <div class="bg-[#333333] text-white text-center py-2 text-[13px] font-medium tracking-wide">
+          10:00-10:50 AM
+        </div>
+        <div class="p-3 text-center flex flex-col justify-center flex-1">
+          <p class="text-gray-500 text-[13px] mb-1">Lecture / G:All</p>
+          <p class="text-gray-400 text-[12px] leading-snug">C:CSE436 / R: 55-503 /<br>S:K4E2321</p>
+        </div>
+      </div>
+
+      <!-- Class 3 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] flex flex-col h-[130px]">
+        <div class="bg-[#333333] text-white text-center py-2 text-[13px] font-medium tracking-wide">
+          11:00-11:50 AM
+        </div>
+        <div class="p-3 text-center flex flex-col justify-center flex-1">
+          <p class="text-gray-500 text-[13px] mb-1">Lecture / G:All</p>
+          <p class="text-gray-400 text-[12px] leading-snug">C:CSE436 / R: 55-503 /<br>S:K4E2321</p>
+        </div>
+      </div>
+
+      <!-- Class 4 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] flex flex-col h-[130px]">
+        <div class="bg-[#333333] text-white text-center py-2 text-[13px] font-medium tracking-wide">
+          01:40-02:30 PM
+        </div>
+        <div class="p-3 text-center flex flex-col justify-center flex-1">
+          <p class="text-gray-500 text-[13px] mb-1">Lecture / G:All</p>
+          <p class="text-gray-400 text-[12px] leading-snug">C:CSE436 / R: 55-503 /<br>S:K4E2321</p>
+        </div>
+      </div>
+
+      <!-- Class 5 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] flex flex-col h-[130px]">
+        <div class="bg-[#333333] text-white text-center py-2 text-[13px] font-medium tracking-wide">
+          02:30-03:20 PM
+        </div>
+        <div class="p-3 text-center flex flex-col justify-center flex-1">
+          <p class="text-gray-500 text-[13px] mb-1">Lecture / G:All</p>
+          <p class="text-gray-400 text-[12px] leading-snug">C:CSE436 / R: 55-503 /<br>S:K4E2321</p>
+        </div>
+      </div>
+
+      <!-- Class 6 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] flex flex-col h-[130px]">
+        <div class="bg-[#333333] text-white text-center py-2 text-[13px] font-medium tracking-wide">
+          04:10-05:00 PM
+        </div>
+        <div class="p-3 text-center flex flex-col justify-center flex-1">
+          <p class="text-gray-500 text-[13px] mb-1">Lecture / G:All</p>
+          <p class="text-gray-400 text-[12px] leading-snug">C:CSE436 / R: 55-503 /<br>S:K4E2321</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const dayBtns = document.querySelectorAll('.day-btn');
+    const activeDayTitle = document.getElementById('active-day-title');
+    
+    // Classes for active vs inactive state
+    const activeClasses = ['bg-gradient-to-r', 'from-brand-coral', 'to-brand-yellow', 'text-gray-900', 'shadow-sm'];
+    const inactiveClasses = ['border', 'border-gray-200', 'text-gray-500'];
+
+    dayBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset all buttons to inactive
+        dayBtns.forEach(b => {
+          b.classList.remove(...activeClasses);
+          b.classList.add(...inactiveClasses);
+        });
+
+        // Set clicked button to active
+        btn.classList.remove(...inactiveClasses);
+        btn.classList.add(...activeClasses);
+
+        // Update the title
+        activeDayTitle.textContent = btn.textContent.trim();
+      });
+    });
+  </script>
+</body>
+</html>

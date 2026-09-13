@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard App</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- HTML5 QRCode -->
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              coral: "#ff7b62",
+              yellow: "#facc40",
+              peach: "#fbd3a3",
+              beige: "#fffbf2",
+              dark: "#333333",
+              green: "#22c55e",
+              bg: "#fafafa",
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="min-h-screen bg-gray-100 flex justify-center font-sans">
+
+  <!-- Mobile Container -->
+  <div class="w-full max-w-md bg-brand-bg min-h-screen relative overflow-hidden shadow-2xl flex flex-col"
+    id="app-container">
+
+    <!-- ==================== DASHBOARD VIEW ==================== -->
+    <div id="view-dashboard"
+      class="flex flex-col h-full w-full absolute inset-0 bg-brand-bg z-10 transition-opacity duration-300">
+
+      <!-- Header -->
+      <header class="flex items-center justify-between px-4 py-4 bg-brand-bg sticky top-0 z-40">
+        <button id="btn-menu-open" class="p-1">
+          <div class="flex flex-col gap-1.5 w-6">
+            <div class="h-0.5 w-full bg-gradient-to-r from-brand-coral to-brand-yellow rounded-full"></div>
+            <div class="h-0.5 w-3/4 bg-gradient-to-r from-brand-coral to-brand-yellow rounded-full"></div>
+            <div class="h-0.5 w-full bg-gradient-to-r from-brand-coral to-brand-yellow rounded-full"></div>
+          </div>
+        </button>
+        <h1 class="text-xl font-medium text-gray-800 tracking-wide">Dashboard</h1>
+        <a href="messages.html" class="p-1 relative block">
+          <i data-lucide="bell" class="w-6 h-6 text-gray-800" style="stroke-width: 1.5;"></i>
+          <span
+            class="absolute -top-1 -right-1 bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-800 text-[11px] font-bold px-2 py-0.5 rounded shadow-sm z-10">64</span>
+        </a>
+      </header>
+
+      <!-- Main Scrollable Content -->
+      <div class="flex-1 overflow-y-auto pb-24">
+
+        <!-- Today's Timetable Section -->
+        <div class="px-4 py-4">
+          <div class="flex items-center justify-between mb-4">
+            <a href="timetable.html" class="flex items-center group">
+              <h2 class="text-xl font-normal text-gray-800 group-hover:text-brand-coral transition-colors">Today's Timetable</h2>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 ml-1 group-hover:text-brand-coral transition-colors"></i>
+            </a>
+            <button
+              class="bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-800 px-3 py-1 rounded-md text-sm font-medium shadow-sm">
+              Your Dost
+            </button>
+          </div>
+
+          <!-- Horizontal Scroll Area -->
+          <div class="flex overflow-x-auto pb-2 -mx-4 px-4 hide-scrollbar gap-4" style="scroll-snap-type: x mandatory;">
+            <!-- 1st Timing -->
+            <a href="timetable.html" style="scroll-snap-align: center;" class="flex-none w-48 relative rounded-xl overflow-hidden shadow-md block">
+              <img src="./public/ase203.png" alt="Timetable UI 1" class="w-full h-auto object-cover">
+              <div class="absolute bottom-0 left-0 right-0 bg-brand-dark/90 text-white text-center py-1.5 text-xs font-medium">
+                09:00-09:50 AM
+              </div>
+            </a>
+
+            <!-- 2nd Timing -->
+            <a href="timetable.html" style="scroll-snap-align: center;" class="flex-none w-48 relative rounded-xl overflow-hidden shadow-md block">
+              <img src="./public/ase203.png" alt="Timetable UI 2" class="w-full h-auto object-cover">
+              <div class="absolute bottom-0 left-0 right-0 bg-brand-dark/90 text-white text-center py-1.5 text-xs font-medium">
+                10:00-10:50 AM
+              </div>
+            </a>
+
+            <!-- 3rd Timing -->
+            <a href="timetable.html" style="scroll-snap-align: center;" class="flex-none w-48 relative rounded-xl overflow-hidden shadow-md block">
+              <img src="./public/ase203.png" alt="Timetable UI 3" class="w-full h-auto object-cover">
+              <div class="absolute bottom-0 left-0 right-0 bg-brand-dark/90 text-white text-center py-1.5 text-xs font-medium">
+                11:00-11:50 AM
+              </div>
+            </a>
+
+            <!-- 4th Timing -->
+            <a href="timetable.html" style="scroll-snap-align: center;" class="flex-none w-48 relative rounded-xl overflow-hidden shadow-md block">
+              <img src="./public/ase203.png" alt="Timetable UI 4" class="w-full h-auto object-cover">
+              <div class="absolute bottom-0 left-0 right-0 bg-brand-dark/90 text-white text-center py-1.5 text-xs font-medium">
+                01:40-02:30 PM
+              </div>
+            </a>
+
+            <!-- 5th Timing -->
+            <a href="timetable.html" style="scroll-snap-align: center;" class="flex-none w-48 relative rounded-xl overflow-hidden shadow-md block">
+              <img src="./public/ase203.png" alt="Timetable UI 5" class="w-full h-auto object-cover">
+              <div class="absolute bottom-0 left-0 right-0 bg-brand-dark/90 text-white text-center py-1.5 text-xs font-medium">
+                02:30-03:20 PM
+              </div>
+            </a>
+
+            <!-- 6th Timing -->
+            <a href="timetable.html" style="scroll-snap-align: center;" class="flex-none w-48 relative rounded-xl overflow-hidden shadow-md block">
+              <img src="./public/ase203.png" alt="Timetable UI 6" class="w-full h-auto object-cover">
+              <div class="absolute bottom-0 left-0 right-0 bg-brand-dark/90 text-white text-center py-1.5 text-xs font-medium">
+                04:10-05:00 PM
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Add More Tiles Section -->
+        <div class="px-4 mt-2 mb-4">
+          <div class="flex justify-between items-start mb-1">
+            <h2 class="text-[22px] font-normal text-gray-900">Add More Tiles</h2>
+            <button class="w-8 h-8 bg-brand-dark rounded-full flex items-center justify-center shadow-md shrink-0 ml-2">
+              <i data-lucide="plus" class="w-5 h-5 text-white"></i>
+            </button>
+          </div>
+          <p class="text-[15px] text-gray-800">Click on the plus button to add menu grids.</p>
+        </div>
+
+        <!-- Tiles Grid -->
+        <div class="px-4 grid grid-cols-3 gap-3">
+          <!-- Tile 1 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <span
+              class="absolute -top-2 right-1 bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-800 text-[11px] font-bold px-2 py-0.5 rounded shadow-sm z-10">25</span>
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/announce.png" alt="Announce" class="w-10 h-10 object-contain">
+            </div>
+            <div class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              Announce</div>  
+          </a>
+
+          <!-- Tile 2 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-brand-coral rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/eduicon.png" alt="Edu Revolution" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              Edu Revolution</div>
+          </a>
+
+          <!-- Tile 3 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/fee.png" alt="Fee Statement" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              Fee Statement</div>
+          </a>
+
+          <!-- Tile 4 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <span
+              class="absolute -top-2 right-1 bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-800 text-[11px] font-bold px-2 py-0.5 rounded shadow-sm z-10">56
+              %</span>
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/attendance.png" alt="Attendance" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              Attendance</div>
+          </a>
+
+          <!-- Tile 5 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <span
+              class="absolute -top-2 right-1 bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-800 text-[11px] font-bold px-2 py-0.5 rounded shadow-sm z-10">1</span>
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/assignment.png" alt="Assignment" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              Assignment</div>
+          </a>
+
+          <!-- Tile 6 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <span
+              class="absolute -top-2 right-1 bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-800 text-[11px] font-bold px-2 py-0.5 rounded shadow-sm z-10">6.74</span>
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/result.png" alt="Results" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              Results</div>
+          </a>
+          <!-- Tile 7 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <span
+              class="absolute -top-2 right-1 bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-800 text-[11px] font-bold px-2 py-0.5 rounded shadow-sm z-10">2</span>
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/exam.png" alt="Exam" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              Exam</div>
+          </a>
+          <!-- Tile 8 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/rms.png" alt="RMS Status" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              RMS Status</div>
+          </a>
+          <!-- Tile 9 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/events.png" alt="Events" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              Events</div>
+          </a>
+          <!-- Tile 10 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <span
+              class="absolute -top-2 right-1 bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-800 text-[11px] font-bold px-2 py-0.5 rounded shadow-sm z-10">X</span>
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/general.png" alt="View Marks" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              View Marks</div>
+          </a>
+          <!-- Tile 11 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <span
+              class="absolute -top-2 right-1 bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-800 text-[11px] font-bold px-2 py-0.5 rounded shadow-sm z-10">X</span>
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/general.png" alt="Hostel Leave Slip" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              Hostel Leave Slip</div>
+          </a>
+          <!-- Tile 12 -->
+          <a href="#"
+            class="relative block bg-brand-beige border-2 border-transparent rounded-xl flex flex-col items-center pt-6 pb-3 shadow-xs h-32 transition-all cursor-pointer hover:shadow-md">
+            <span
+              class="absolute -top-2 right-1 bg-gradient-to-r from-brand-coral to-brand-yellow text-gray-800 text-[11px] font-bold px-2 py-0.5 rounded shadow-sm z-10">X</span>
+            <div class="flex-1 flex items-center justify-center text-gray-800 mb-3">
+              <img src="./public/general.png" alt="Time Table" class="w-10 h-10 object-contain">
+            </div>
+            <div
+              class="w-[90%] bg-brand-peach text-gray-800 text-[13px] text-center py-1 px-1 rounded font-medium leading-tight line-clamp-2">
+              Time Table</div>
+          </a>
+
+
+
+      <!-- Bottom Nav -->
+      <nav class="absolute bottom-0 left-0 right-0 bg-brand-bg border-t border-gray-200 px-2 py-3 z-40">
+        <div class="flex justify-around items-center">
+          <button class="flex flex-col items-center gap-1 w-20">
+            <i data-lucide="layout-grid" class="w-6 h-6 text-brand-coral" style="stroke-width: 1.5;"></i>
+            <span class="text-[10px] text-brand-coral font-medium">Dashboard</span>
+          </button>
+          <button class="flex flex-col items-center gap-1 w-20">
+            <i data-lucide="newspaper" class="w-6 h-6 text-gray-400" style="stroke-width: 1.5;"></i>
+            <span class="text-[10px] text-gray-400 font-medium">Happenings</span>
+          </button>
+          <button class="flex flex-col items-center gap-1 w-20">
+            <i data-lucide="edit" class="w-6 h-6 text-gray-400" style="stroke-width: 1.5;"></i>
+            <span class="text-[10px] text-gray-400 font-medium">RMS</span>
+          </button>
+          <button class="flex flex-col items-center gap-1 w-20">
+            <i data-lucide="building-2" class="w-6 h-6 text-gray-400" style="stroke-width: 1.5;"></i>
+            <span class="text-[10px] text-gray-400 font-medium">Guest Room</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ==================== SIDEBAR MENU ==================== -->
+    <div id="sidebar-menu" class="absolute inset-0 z-50 hidden">
+      <!-- Backdrop -->
+      <div id="sidebar-backdrop" class="absolute inset-0 bg-black/50 cursor-pointer"></div>
+
+      <!-- Menu Panel -->
+      <div
+        class="absolute left-0 top-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl animate-slide-in-left flex flex-col">
+
+        <!-- Profile Section -->
+        <a href="profile.html" class="sidebar-profile-link block bg-gradient-to-b from-[#ff8478] via-[#ffad6d] to-[#ffd35e] text-center relative z-10 cursor-pointer p-6 pb-8" aria-label="Open Malay Ghosh's profile">
+          <div class="flex flex-col items-center">
+            <div class="w-20 h-20 rounded-full overflow-hidden mb-3 border-[3px] border-white shadow-sm bg-white flex items-center justify-center">
+              <img src="./public/profile.png" alt="Malay Ghosh" class="w-full h-full object-cover" onerror="this.hidden=true;">
+            </div>
+            <h3 class="text-black font-semibold text-[20px] leading-tight" id="student-name">Malay Ghosh</h3>
+            <p class="text-black text-[15px] mt-1" id="student-id">12321607</p>
+            <p class="text-black text-[13px] text-center mt-2 leading-snug max-w-[248px]">
+              P13E: B.Tech (Aerospace engineering)
+            </p>
+          </div>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="p-4 border-b border-gray-200">
+          <div class="relative">
+            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+            <input type="text" id="menu-search" placeholder="Search"
+              class="w-full pl-10 pr-4 py-2 bg-gray-100 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-brand-coral">
+          </div>
+        </div>
+
+        <!-- Menu Items List -->
+        <div class="flex-1 overflow-y-auto pb-20" id="menu-items-container">
+          <!-- Items will be injected by JS -->
+        </div>
+
+        <!-- Logout Button -->
+        <div class="p-4 bg-white border-t border-gray-200 mt-auto sticky bottom-0">
+          <button
+            class="w-full bg-gradient-to-r from-[#ff8c72] to-[#facc40] text-black py-3.5 rounded-full font-medium flex items-center justify-center gap-2 shadow-sm">
+            Logout
+            <i data-lucide="log-out" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <!-- Main Application Logic -->
+  <script src="sidebar.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
